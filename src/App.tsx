@@ -130,7 +130,7 @@ function App() {
               <img src={show.image.medium} alt={show.name} />
               <h3 className="card-title">{show.name}</h3>
               <p className="card-rating">
-                Rating: Rating: {show.rating?.average || 'N/A'}
+              Rating: {show.rating?.average || 'N/A'}
               </p>
               <p className="card-genres">Genres: {show.genres.join(', ')}</p>
               <p className="card-description">{show.summary}</p>
