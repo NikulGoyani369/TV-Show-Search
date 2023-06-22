@@ -50,7 +50,7 @@ function App() {
   // function to search for shows
   const searchShows = async () => {
     try {
-      const searchResponse = await fetch(`/api/search/shows?q=${searchTerm}`);
+      const searchResponse = await fetch(`https://api.tvmaze.com/api/search/shows?q=${searchTerm}`);
       const searchJson: any[] = await searchResponse.json();
 
       console.log(searchJson);
