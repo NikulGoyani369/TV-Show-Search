@@ -4,14 +4,15 @@ This is a web application built with Vite, React, and TypeScript that allows you
 
 ![App Screenshot](Screenshot_1.png)
 
+![App Screenshot](Screenshot_2.png)
 ## Features
 
 - Search for TV shows using keywords
 - View search results with show details, including name, rating, genres, and summary
-- Add shows to your favorites list
-- Remove shows from your favorites list
-- View a list of your favorite shows
-- Click on a favorite show to view more details in a modal
+- Add shows to your favourites list
+- Remove shows from your favourites list
+- View a list of your favourite shows
+- Click on a favourite show to view more details in a modal
 
 ## Prerequisites
 
