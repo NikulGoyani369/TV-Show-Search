@@ -107,10 +107,10 @@ function App() {
 
   return (
     <>
-    {/* dangerouslySetInnerHTML={{__html} } */}
       <div className="app">
         <img src={viteLogo} className="logo" alt="Vite logo" />
-        <h1>Vite + React + TypeScript</h1>
+        <h1>TV Show Search</h1>
+        <h3>Vite + React + TypeScript</h3>
         <div className="search-container">
           <input
             type="text"
