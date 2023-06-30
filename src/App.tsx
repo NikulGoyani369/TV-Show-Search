@@ -24,7 +24,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [shows, setShows] = useState<Show[]>([]);
   const [favorites, setFavorites] = useState<FavoriteShow[]>([]);
-  const [selectedShow, setSelectedShow] = useState<Show | null>(null);
+  const [selectedShow, setSelectedShow] = useState<Show>();
   const [showModal, setShowModal] = useState(false);
 
   // Load favorites from local storage on initial render
@@ -62,7 +62,7 @@ function App() {
           rating: item.show.rating ? item.show.rating : 'N/A',
           genres: item.show.genres,
           summary: stripHtmlTags(item.show.summary),
-          image: item.show.image,
+          image: item.show.image ? item.show.image : '',
         }));
         setShows(processedShows);
 
