@@ -65,6 +65,11 @@ function App() {
           image: item.show.image,
         }));
         setShows(processedShows);
+
+        // if no results found
+      } else {
+        const alert = window.alert('No results found');
+        return alert;
       }
     } catch (error) {
       console.log(error);
@@ -162,7 +167,13 @@ function App() {
                 </button>
               </li>
             ))}
-          </ul>
+          </ul> 
+
+          {favorites.length === 0 ?
+          <p className="no-favorites"></p>
+          :  
+          <p className="no-favorites"></p>
+}
         </div>
         {selectedShow && showModal && (
           <div className="modal">
