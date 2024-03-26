@@ -19,6 +19,7 @@ interface FavoriteShow {
   name: string;
 }
 
+
 // App function
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -53,6 +54,11 @@ function App() {
       const searchResponse = await fetch(`https://api.tvmaze.com/api/search/shows?q=${searchTerm}`);
       const searchJson: any[] = await searchResponse.json();
 
+      const searchPeopeResponse = await fetch(`https://api.tvmaze.com/api/search/people?q=${searchTerm}`);
+      const searchPeopleJson: any[] = await searchPeopeResponse.json();
+
+      console.log(searchPeopleJson);
+
       console.log(searchJson);
 
       if (searchJson && searchJson.length > 0) {
@@ -63,6 +69,19 @@ function App() {
           genres: item.show.genres,
           summary: stripHtmlTags(item.show.summary),
           image: item.show.image,
+        }));
+        setShows(processedShows);
+      }
+
+      // WIP for people search
+      if (searchPeopleJson && searchPeopleJson.length > 0) {
+        const processedShows: Show[] = searchPeopleJson.map((item) => ({
+          id: item.person.id,
+          name: item.person.name,
+          rating: item.person.rating ? item.person.rating : 'N/A',
+          genres: item.person.genres,
+          summary: stripHtmlTags(item.person.summary),
+          image: item.person.image,
         }));
         setShows(processedShows);
       }
@@ -114,7 +133,7 @@ function App() {
         <div className="search-container">
           <input
             type="text"
-            placeholder="Enter a TV show"
+            placeholder="Enter a TV show / People search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="input-field"
@@ -132,7 +151,7 @@ function App() {
               <p className="card-rating">
               Rating: {show.rating?.average || 'N/A'}
               </p>
-              <p className="card-genres">Genres: {show.genres.join(', ')}</p>
+              <p className="card-genres"> Genres: {show.genres.join(', ')}</p>
               <p className="card-description">{show.summary}</p>
               <button className="card-button" onClick={() => addFavorite(show)}>
                 Add to Favorites
@@ -164,6 +183,7 @@ function App() {
             ))}
           </ul>
         </div>
+
         {selectedShow && showModal && (
           <div className="modal">
             <div className="modal-content">
@@ -183,6 +203,13 @@ function App() {
           </div>
         )}
       </div>
+
+      <footer>
+        <p>
+          Made with ❤️ by{'Nikulkumar Goyani'}
+          <a href="" target="_blank" rel="noopener noreferrer"></a>
+        </p>
+      </footer>
     </>
   );
 }
