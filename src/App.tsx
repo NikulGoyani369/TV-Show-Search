@@ -157,7 +157,7 @@ function App() {
                 Add to Favorites
               </button>
             </div>
-          ))}
+          ))} 
         </div>
 
         <div className="favorites-section">
@@ -206,7 +206,7 @@ function App() {
 
       <footer>
         <p>
-          Made with ❤️ by{'Nikulkumar Goyani'}
+          Made with ❤️ by {'Nikulkumar Goyani'}
           <a href="" target="_blank" rel="noopener noreferrer"></a>
         </p>
       </footer>
